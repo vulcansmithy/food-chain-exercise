@@ -22,13 +22,44 @@ class FoodChain
       "horse",
     ]
 
-    for i in 0..(animal_menagerie.count - 1) 
-      puts "@DEBUG #{__LINE__}    #{animal_menagerie[i]}"
-      (i - 1).downto(0) do |n|
-        puts "@DEBUG #{__LINE__}    #{animal_menagerie[n]}"
+    for i in 1..animal_menagerie.count
+      animal = animal_menagerie[i - 1]
+      if    animal == "bird"
+        puts "@DEBUG #{__LINE__}    I know an old lady who swallowed a #{animal}.     #{i}"
+        puts "@DEBUG #{__LINE__}    How absurd to swallow a bird!" 
+        
+      elsif animal == "spider"
+        puts "@DEBUG #{__LINE__}    I know an old lady who swallowed a #{animal}.     #{i}"
+        puts "@DEBUG #{__LINE__}    It wriggled and jiggled and tickled inside her." 
+        
+      elsif animal == "fly"  
+        puts "@DEBUG #{__LINE__}    I know an old lady who swallowed a #{animal}.     #{i}"
+      else  
+        puts "@DEBUG #{__LINE__}    #{animal}                                         #{i}"
+      end  
+
+      (i - 1).downto(1) do |n|
+        animal = animal_menagerie[n - 1]
+        
+        if    animal == "bird"
+          puts "@DEBUG #{__LINE__}    I know an old lady who swallowed a #{animal}."
+        
+        elsif animal == "spider"
+ #         puts "@DEBUG #{__LINE__}    I know an old lady who swallowed a #{animal}."
+#          puts "@DEBUG #{__LINE__}    It wriggled and jiggled and tickled inside her." 
+          puts "@DEBUG #{__LINE__}    She swallowed the #{animal_menagerie[n]} to catch the #{animal_menagerie[n - 1]} that wriggled and jiggled and tickled inside her."
+        
+        elsif animal == "fly"  
+          puts "@DEBUG #{__LINE__}    She swallowed the #{animal_menagerie[n]} to catch the #{animal_menagerie[n - 1]}."
+        else  
+          puts "@DEBUG #{__LINE__}    #{animal}"
+        end 
       end
       
       
+      puts "@DEBUG #{__LINE__}    I don't know why she swallowed the #{animal}. Perhaps she'll die."
+      puts "@DEBUG #{__LINE__}    "
+      puts "@DEBUG #{__LINE__}    "
       puts "@DEBUG #{__LINE__}    "
     end
   end  
