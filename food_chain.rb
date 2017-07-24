@@ -30,14 +30,14 @@ class FoodChain
 
       unless picked_creature == "horse"
         
-        last_swallowed = nil
+        last_swallowed_creature = nil
         (i - 1).downto(1) do |n|
-          currently_swallowed  = @menagerie[n]
-          previously_swallowed = @menagerie[n - 1]
-          last_swallowed       = display_who_swallowed_who(currently_swallowed, previously_swallowed)        
+          currently_swallowed_creature  = @menagerie[n]
+          previously_swallowed_creature = @menagerie[n - 1]
+          last_swallowed_creature       = display_who_swallowed_who(currently_swallowed_creature, previously_swallowed_creature)        
         end
 
-        display_last_line_per_verse(last_swallowed)
+        display_last_line_per_verse(last_swallowed_creature)
       end  
     end
   end  
@@ -47,6 +47,7 @@ class FoodChain
   end
   
   def display_second_line_per_verse(picked_creature)
+    
     case picked_creature
     when "fly"
       # Do nothing. This is here to make sure 'fly' is processed and not mistakenly to be "unrecognized"...
@@ -69,22 +70,22 @@ class FoodChain
     end  
   end
   
-  def display_last_line_per_verse(last_swallowed)
-    puts "I don't know why she swallowed the #{last_swallowed}. Perhaps she'll die.\n\n"
+  def display_last_line_per_verse(last_swallowed_creature)
+    puts "I don't know why she swallowed the #{last_swallowed_creature}. Perhaps she'll die.\n\n"
   end
   
-  def display_who_swallowed_who(currently_swallowed, previously_swallowed)
+  def display_who_swallowed_who(currently_swallowed_creature, previously_swallowed_creature)
     
-    case previously_swallowed
+    case previously_swallowed_creature
     when "goat", "dog", "cat", "bird", "fly"
-      puts "She swallowed the #{currently_swallowed} to catch the #{previously_swallowed}."
+      puts "She swallowed the #{currently_swallowed_creature} to catch the #{previously_swallowed_creature}."
     when "spider"
-      puts "She swallowed the #{currently_swallowed} to catch the #{previously_swallowed} that wriggled and jiggled and tickled inside her."
+      puts "She swallowed the #{currently_swallowed_creature} to catch the #{previously_swallowed_creature} that wriggled and jiggled and tickled inside her."
     else
-      puts "ERROR! Unrecognized animal, #{previously_swallowed}."    
+      puts "ERROR! Unrecognized animal, #{previously_swallowed_creature}."    
     end
     
-    return previously_swallowed
+    return previously_swallowed_creature
   end
   
 end
