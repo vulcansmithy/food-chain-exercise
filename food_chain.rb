@@ -25,9 +25,8 @@ class FoodChain
     for i in 1..@menagerie.count
       picked_animal = @menagerie[i - 1]
 
-      puts "\nI know an old lady who swallowed a #{picked_animal}.     #{i}"      
-
-      display_second_liner(picked_animal)    
+      display_first_line_per_verse(picked_animal)
+      display_second_line_per_verse(picked_animal)    
       
       # if the currently picked animal is a 'horse' skip the next code...
       break if picked_animal ==  "horse"   
@@ -39,12 +38,15 @@ class FoodChain
         last_swallowed       = display_who_swallowed_who(currently_swallowed, previously_swallowed)        
       end
 
-      puts "I don't know why she swallowed the #{last_swallowed}. Perhaps she'll die.\n\n"
+      display_last_line_per_verse(last_swallowed)
     end
   end  
   
+  def display_first_line_per_verse(picked_animal)
+    puts "\nI know an old lady who swallowed a #{picked_animal}."  
+  end
   
-  def display_second_liner(picked_animal)
+  def display_second_line_per_verse(picked_animal)
     case picked_animal
     when "fly"
       # Do nothing. This is here to make sure 'fly' is processed and not mistakenly be unrecognized...
@@ -65,6 +67,10 @@ class FoodChain
     else
       puts "ERROR! Unrecognized animal, #{picked_animal}." 
     end  
+  end
+  
+  def display_last_line_per_verse(last_swallowed)
+    puts "I don't know why she swallowed the #{last_swallowed}. Perhaps she'll die.\n\n"
   end
   
   def display_who_swallowed_who(currently_swallowed, previously_swallowed)
