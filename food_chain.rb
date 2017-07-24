@@ -42,11 +42,9 @@ class FoodChain
         animal = animal_menagerie[n - 1]
         
         if    animal == "bird"
-          puts "@DEBUG #{__LINE__}    I know an old lady who swallowed a #{animal}."
+          puts "@DEBUG #{__LINE__}    She swallowed the #{animal_menagerie[n]} to catch the #{animal_menagerie[n - 1]}."
         
         elsif animal == "spider"
- #         puts "@DEBUG #{__LINE__}    I know an old lady who swallowed a #{animal}."
-#          puts "@DEBUG #{__LINE__}    It wriggled and jiggled and tickled inside her." 
           puts "@DEBUG #{__LINE__}    She swallowed the #{animal_menagerie[n]} to catch the #{animal_menagerie[n - 1]} that wriggled and jiggled and tickled inside her."
         
         elsif animal == "fly"  
