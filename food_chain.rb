@@ -66,7 +66,7 @@ class FoodChain
     when "horse" 
       puts "She's dead, of course!\n\n"
     else
-      puts "ERROR! Unrecognized animal, #{picked_creature}." 
+      puts "ERROR! Unrecognized submitted creature, #{picked_creature}." 
     end  
   end
   
@@ -82,7 +82,7 @@ class FoodChain
     when "spider"
       puts "She swallowed the #{currently_swallowed_creature} to catch the #{previously_swallowed_creature} that wriggled and jiggled and tickled inside her."
     else
-      puts "ERROR! Unrecognized animal, #{previously_swallowed_creature}."    
+      puts "ERROR! Unrecognized submitted creature, #{previously_swallowed_creature}."    
     end
     
     return previously_swallowed_creature
