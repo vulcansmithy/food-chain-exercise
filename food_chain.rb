@@ -22,13 +22,14 @@ class FoodChain
   
   def main
     
-    for i in 1..@menagerie.count
+    for i in 1..@menagerie.size
       picked_animal = @menagerie[i - 1]
 
       display_first_line_per_verse(picked_animal)
       display_second_line_per_verse(picked_animal)    
 
       unless picked_animal == "horse"
+        
         last_swallowed = nil
         (i - 1).downto(1) do |n|
           currently_swallowed  = @menagerie[n]
