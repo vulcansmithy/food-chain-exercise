@@ -24,9 +24,14 @@ class FoodChain
 
     for i in 1..animal_menagerie.count
       animal = animal_menagerie[i - 1]
-      if    animal == "dog"
+      if    animal == "goat"
+        puts "@DEBUG #{__LINE__}    I know an old lady who swallowed a #{animal_menagerie[i - 1]}.     #{i}"
+        puts "@DEBUG #{__LINE__}    Just opened her throat and swallowed a #{animal_menagerie[i - 1]}!"
+      
+      elsif animal == "dog"
         puts "@DEBUG #{__LINE__}    I know an old lady who swallowed a #{animal_menagerie[i - 1]}.     #{i}"
         puts "@DEBUG #{__LINE__}    What a hog, to swallow a #{animal_menagerie[i - 1]}!"
+        
       elsif animal == "cat"
         puts "@DEBUG #{__LINE__}    I know an old lady who swallowed a #{animal_menagerie[i - 1]}.     #{i}"
         puts "@DEBUG #{__LINE__}    Imagine that, to swallow a #{animal_menagerie[i - 1]}!"
@@ -48,7 +53,10 @@ class FoodChain
       (i - 1).downto(1) do |n|
         animal = animal_menagerie[n - 1]
         
-        if    animal == "cat"
+        if    animal == "dog"
+          puts "@DEBUG #{__LINE__}    She swallowed the #{animal_menagerie[n]} to catch the #{animal_menagerie[n - 1]}."
+          
+        elsif animal == "cat"
           puts "@DEBUG #{__LINE__}    She swallowed the #{animal_menagerie[n]} to catch the #{animal_menagerie[n - 1]}."
         
         elsif animal == "bird"
