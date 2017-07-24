@@ -23,28 +23,28 @@ class FoodChain
     ]
 
     for i in 1..menagerie.count
-      animal = menagerie[i - 1]
+      picked_animal = menagerie[i - 1]
 
-      puts "I know an old lady who swallowed a #{animal}.     #{i}"      
+      puts "I know an old lady who swallowed a #{picked_animal}.     #{i}"      
 
-      case animal
+      case picked_animal
       when "fly"
         # Do nothing. This is here to make sure 'fly' is processed and not mistakenly be unrecognized...
       when "bird" 
-        puts "How absurd to swallow a #{animal}!" 
+        puts "How absurd to swallow a #{picked_animal}!" 
       when "cat" 
-        puts "Imagine that, to swallow a #{animal}!"
+        puts "Imagine that, to swallow a #{picked_animal}!"
       when "dog"
-        puts "What a hog, to swallow a #{animal}!"
+        puts "What a hog, to swallow a #{picked_animal}!"
       when  "goat" 
-        puts "Just opened her throat and swallowed a #{animal}!"
+        puts "Just opened her throat and swallowed a #{picked_animal}!"
       when  "cow" 
-        puts "I don't know how she swallowed a #{animal}!"
+        puts "I don't know how she swallowed a #{anipicked_animalmal}!"
       when "horse" 
         puts "She's dead, of course!"
         break 
       else
-        puts "ERROR! Unrecognized animal, #{animal}." 
+        puts "ERROR! Unrecognized animal, #{picked_animal}." 
       end    
       
 
