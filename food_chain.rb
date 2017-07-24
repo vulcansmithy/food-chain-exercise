@@ -27,18 +27,17 @@ class FoodChain
 
       display_first_line_per_verse(picked_animal)
       display_second_line_per_verse(picked_animal)    
-      
-      # if the currently picked animal is a 'horse' skip the next code...
-      break if picked_animal ==  "horse"   
 
-      last_swallowed = nil
-      (i - 1).downto(1) do |n|
-        currently_swallowed  = @menagerie[n]
-        previously_swallowed = @menagerie[n - 1]
-        last_swallowed       = display_who_swallowed_who(currently_swallowed, previously_swallowed)        
-      end
+      unless picked_animal == "horse"
+        last_swallowed = nil
+        (i - 1).downto(1) do |n|
+          currently_swallowed  = @menagerie[n]
+          previously_swallowed = @menagerie[n - 1]
+          last_swallowed       = display_who_swallowed_who(currently_swallowed, previously_swallowed)        
+        end
 
-      display_last_line_per_verse(last_swallowed)
+        display_last_line_per_verse(last_swallowed)
+      end  
     end
   end  
   
