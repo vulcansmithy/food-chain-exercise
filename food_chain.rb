@@ -22,7 +22,7 @@ class FoodChain
       "horse",
     ]
 
-    for i in 0..(animal_menagerie.size - 1) 
+    for i in 0..(animal_menagerie.count - 1) 
       puts "@DEBUG #{__LINE__}    #{animal_menagerie[i]}"
       (i - 1).downto(0) do |n|
         puts "@DEBUG #{__LINE__}    #{animal_menagerie[n]}"
