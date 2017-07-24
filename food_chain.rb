@@ -24,24 +24,34 @@ class FoodChain
 
     for i in 1..animal_menagerie.count
       animal = animal_menagerie[i - 1]
-      if    animal == "bird"
-        puts "@DEBUG #{__LINE__}    I know an old lady who swallowed a #{animal}.     #{i}"
+      if    animal == "dog"
+        puts "@DEBUG #{__LINE__}    I know an old lady who swallowed a #{animal_menagerie[i - 1]}.     #{i}"
+        puts "@DEBUG #{__LINE__}    What a hog, to swallow a #{animal_menagerie[i - 1]}!"
+      elsif animal == "cat"
+        puts "@DEBUG #{__LINE__}    I know an old lady who swallowed a #{animal_menagerie[i - 1]}.     #{i}"
+        puts "@DEBUG #{__LINE__}    Imagine that, to swallow a #{animal_menagerie[i - 1]}!"
+        
+      elsif animal == "bird"
+        puts "@DEBUG #{__LINE__}    I know an old lady who swallowed a #{animal_menagerie[i - 1]}.     #{i}"
         puts "@DEBUG #{__LINE__}    How absurd to swallow a bird!" 
         
       elsif animal == "spider"
-        puts "@DEBUG #{__LINE__}    I know an old lady who swallowed a #{animal}.     #{i}"
+        puts "@DEBUG #{__LINE__}    I know an old lady who swallowed a #{animal_menagerie[i - 1]}.     #{i}"
         puts "@DEBUG #{__LINE__}    It wriggled and jiggled and tickled inside her." 
         
       elsif animal == "fly"  
-        puts "@DEBUG #{__LINE__}    I know an old lady who swallowed a #{animal}.     #{i}"
+        puts "@DEBUG #{__LINE__}    I know an old lady who swallowed a #{animal_menagerie[i - 1]}.     #{i}"
       else  
-        puts "@DEBUG #{__LINE__}    #{animal}                                         #{i}"
+        puts "@DEBUG #{__LINE__}    #{animal_menagerie[i - 1]}                                         #{i}"
       end  
 
       (i - 1).downto(1) do |n|
         animal = animal_menagerie[n - 1]
         
-        if    animal == "bird"
+        if    animal == "cat"
+          puts "@DEBUG #{__LINE__}    She swallowed the #{animal_menagerie[n]} to catch the #{animal_menagerie[n - 1]}."
+        
+        elsif animal == "bird"
           puts "@DEBUG #{__LINE__}    She swallowed the #{animal_menagerie[n]} to catch the #{animal_menagerie[n - 1]}."
         
         elsif animal == "spider"
