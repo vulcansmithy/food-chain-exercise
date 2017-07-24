@@ -11,8 +11,6 @@ class FoodChain
   end  
   
   def main
-    puts "@DEBUG #{__LINE__}    Running inside main..."
-    
     animal_menagerie = [
       "fly",
       "spider",
