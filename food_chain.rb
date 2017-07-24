@@ -58,32 +58,25 @@ class FoodChain
         puts "@DEBUG #{__LINE__}    I know an old lady who swallowed a #{animal_menagerie[i - 1]}.     #{i}"
       end  
 
+      previously_swallowed = nil
+      previously_swallowed = nil
       (i - 1).downto(1) do |n|
-        animal = animal_menagerie[n - 1]
-        if    animal == "goat"
-          puts "@DEBUG #{__LINE__}    She swallowed the #{animal_menagerie[n]} to catch the #{animal_menagerie[n - 1]}."
-             
-        elsif animal == "dog"
-          puts "@DEBUG #{__LINE__}    She swallowed the #{animal_menagerie[n]} to catch the #{animal_menagerie[n - 1]}."
-          
-        elsif animal == "cat"
-          puts "@DEBUG #{__LINE__}    She swallowed the #{animal_menagerie[n]} to catch the #{animal_menagerie[n - 1]}."
-        
-        elsif animal == "bird"
-          puts "@DEBUG #{__LINE__}    She swallowed the #{animal_menagerie[n]} to catch the #{animal_menagerie[n - 1]}."
-        
-        elsif animal == "spider"
-          puts "@DEBUG #{__LINE__}    She swallowed the #{animal_menagerie[n]} to catch the #{animal_menagerie[n - 1]} that wriggled and jiggled and tickled inside her."
-        
-        elsif animal == "fly"  
-          puts "@DEBUG #{__LINE__}    She swallowed the #{animal_menagerie[n]} to catch the #{animal_menagerie[n - 1]}."
-        else  
-          puts "@DEBUG #{__LINE__}    #{animal}"
-        end 
+        previously_swallowed = animal_menagerie[n - 1]
+         currently_swallowed = animal_menagerie[n    ]
+    
+        case previously_swallowed
+        when "goat", "dog", "cat", "bird", "fly"
+          puts "@DEBUG #{__LINE__}    She swallowed the #{currently_swallowed} to catch the #{previously_swallowed}."
+        when "spider"
+          puts "@DEBUG #{__LINE__}    She swallowed the #{currently_swallowed} to catch the #{previously_swallowed} that wriggled and jiggled and tickled inside her."
+        else
+          puts "@DEBUG #{__LINE__}    Error! Unrecognized animal, #{previously_swallowed}."    
+        end
       end
+      last_swallowed = previously_swallowed
       
       
-      puts "@DEBUG #{__LINE__}    I don't know why she swallowed the #{animal}. Perhaps she'll die."
+      puts "@DEBUG #{__LINE__}    I don't know why she swallowed the #{last_swallowed}. Perhaps she'll die."
       puts "@DEBUG #{__LINE__}    "
       puts "@DEBUG #{__LINE__}    "
       puts "@DEBUG #{__LINE__}    "
