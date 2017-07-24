@@ -23,12 +23,12 @@ class FoodChain
   def main
     
     for i in 1..@menagerie.size
-      picked_animal = @menagerie[i - 1]
+      picked_creature = @menagerie[i - 1]
 
-      display_first_line_per_verse(picked_animal)
-      display_second_line_per_verse(picked_animal)    
+      display_first_line_per_verse( picked_creature)
+      display_second_line_per_verse(picked_creature)    
 
-      unless picked_animal == "horse"
+      unless picked_creature == "horse"
         
         last_swallowed = nil
         (i - 1).downto(1) do |n|
@@ -42,30 +42,30 @@ class FoodChain
     end
   end  
   
-  def display_first_line_per_verse(picked_animal)
-    puts "\nI know an old lady who swallowed a #{picked_animal}."  
+  def display_first_line_per_verse(picked_creature)
+    puts "\nI know an old lady who swallowed a #{picked_creature}."  
   end
   
-  def display_second_line_per_verse(picked_animal)
-    case picked_animal
+  def display_second_line_per_verse(picked_creature)
+    case picked_creature
     when "fly"
-      # Do nothing. This is here to make sure 'fly' is processed and not mistakenly be unrecognized...
+      # Do nothing. This is here to make sure 'fly' is processed and not mistakenly to be "unrecognized"...
     when "spider"
       puts "It wriggled and jiggled and tickled inside her."  
     when "bird" 
-      puts "How absurd to swallow a #{picked_animal}!" 
+      puts "How absurd to swallow a #{picked_creature}!" 
     when "cat" 
-      puts "Imagine that, to swallow a #{picked_animal}!"
+      puts "Imagine that, to swallow a #{picked_creature}!"
     when "dog"
-      puts "What a hog, to swallow a #{picked_animal}!"
+      puts "What a hog, to swallow a #{picked_creature}!"
     when  "goat" 
-      puts "Just opened her throat and swallowed a #{picked_animal}!"
+      puts "Just opened her throat and swallowed a #{picked_creature}!"
     when  "cow" 
-      puts "I don't know how she swallowed a #{picked_animal}!"
+      puts "I don't know how she swallowed a #{picked_creature}!"
     when "horse" 
       puts "She's dead, of course!\n\n"
     else
-      puts "ERROR! Unrecognized animal, #{picked_animal}." 
+      puts "ERROR! Unrecognized animal, #{picked_creature}." 
     end  
   end
   
