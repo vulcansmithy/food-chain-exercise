@@ -22,7 +22,6 @@ class FoodChain
   
   def main
     
-
     for i in 1..@menagerie.count
       picked_animal = @menagerie[i - 1]
 
@@ -51,26 +50,30 @@ class FoodChain
       end    
       
 
-      previously_swallowed = nil
-      currently_swallowed  = nil
+      last_swallowed = nil
       (i - 1).downto(1) do |n|
         previously_swallowed = @menagerie[n - 1]
          currently_swallowed = @menagerie[n    ]
     
-        case previously_swallowed
-        when "goat", "dog", "cat", "bird", "fly"
-          puts "She swallowed the #{currently_swallowed} to catch the #{previously_swallowed}."
-        when "spider"
-          puts "She swallowed the #{currently_swallowed} to catch the #{previously_swallowed} that wriggled and jiggled and tickled inside her."
-        else
-          puts "ERROR! Unrecognized animal, #{previously_swallowed}."    
-        end
+        last_swallowed = who_swallowed_who(currently_swallowed, previously_swallowed)        
       end
-      last_swallowed = previously_swallowed
-      
-      
+
       puts "I don't know why she swallowed the #{last_swallowed}. Perhaps she'll die.\n\n\n"
     end
   end  
+  
+  def who_swallowed_who(currently_swallowed, previously_swallowed)
+    
+    case previously_swallowed
+    when "goat", "dog", "cat", "bird", "fly"
+      puts "She swallowed the #{currently_swallowed} to catch the #{previously_swallowed}."
+    when "spider"
+      puts "She swallowed the #{currently_swallowed} to catch the #{previously_swallowed} that wriggled and jiggled and tickled inside her."
+    else
+      puts "ERROR! Unrecognized animal, #{previously_swallowed}."    
+    end
+    
+    return previously_swallowed
+  end
   
 end
