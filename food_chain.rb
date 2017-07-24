@@ -7,6 +7,10 @@ class FoodChain
     FoodChain.new.main 
   end
   
+  def initialize
+    puts "@DEBUG #{__LINE__}    Running inside initialize..."
+  end  
+  
   def main
     puts "@DEBUG #{__LINE__}    Running inside main..."
   end  
