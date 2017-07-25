@@ -8,7 +8,8 @@ class FoodChain
   end
   
   def initialize
-    @menagerie = [
+    @song_lyrics = ""
+    @menagerie   = [
       "fly",
       "spider",
       "bird",
@@ -18,8 +19,6 @@ class FoodChain
       "cow",
       "horse",
     ]
-    
-    @song_lyrics = ""
   end  
   
   def main
@@ -55,11 +54,10 @@ class FoodChain
   end
   
   def build_second_line_per_verse(picked_creature)
-    
-    
+ 
     line = case picked_creature
     when "fly"
-      "" # Do nothing. This is here to make sure 'fly' is processed and not mistakenly to be "unrecognized"...
+      "" # Intentionally left blank. This is here to make sure 'fly' is processed and not mistakenly to be "unrecognized"...
     when "spider"
       "It wriggled and jiggled and tickled inside her.\n"  
     when "bird" 
@@ -73,7 +71,7 @@ class FoodChain
     when  "cow" 
       "I don't know how she swallowed a cow!\n"
     when "horse" 
-      "She's dead, of course!\n\n\n"
+      "She's dead, of course!\n\n"
     else
       puts "ERROR! Unrecognized submitted creature, #{picked_creature}." 
       return
@@ -83,9 +81,7 @@ class FoodChain
   end
   
   def build_last_line_per_verse(last_swallowed_creature)
-    line = "I don't know why she swallowed the #{last_swallowed_creature}. Perhaps she'll die.\n\n"
-    
-    @song_lyrics = @song_lyrics + line
+    @song_lyrics += "I don't know why she swallowed the #{last_swallowed_creature}. Perhaps she'll die.\n\n"
   end
   
   def build_who_swallowed_who(currently_swallowed_creature, previously_swallowed_creature)
