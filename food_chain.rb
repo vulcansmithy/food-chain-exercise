@@ -31,14 +31,14 @@ class FoodChain
 
       unless picked_creature == "horse"
         
-        last_swallowed_creature = nil
+        last_swallowed_creature = (i == 1 ? "fly" : nil)
+
         (i - 1).downto(1) do |n|
           currently_swallowed_creature  = @menagerie[n]
           previously_swallowed_creature = @menagerie[n - 1]
           last_swallowed_creature       = build_who_swallowed_who(currently_swallowed_creature, previously_swallowed_creature)        
         end
         
-        last_swallowed_creature = "fly" if i == 1  
         build_last_line_per_verse(last_swallowed_creature)
       end  
     end
