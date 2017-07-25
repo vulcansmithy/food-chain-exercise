@@ -37,7 +37,8 @@ class FoodChain
           previously_swallowed_creature = @menagerie[n - 1]
           last_swallowed_creature       = build_who_swallowed_who(currently_swallowed_creature, previously_swallowed_creature)        
         end
-
+        
+        last_swallowed_creature = "fly" if i == 1  
         build_last_line_per_verse(last_swallowed_creature)
       end  
     end
@@ -71,7 +72,7 @@ class FoodChain
     when  "cow" 
       "I don't know how she swallowed a cow!\n"
     when "horse" 
-      "She's dead, of course!\n\n"
+      "She's dead, of course!"
     else
       puts "ERROR! Unrecognized submitted creature, #{picked_creature}." 
       return
