@@ -18,6 +18,8 @@ class FoodChain
       "cow",
       "horse",
     ]
+    
+    @song_lyrics = ""
   end  
   
   def main
@@ -25,8 +27,8 @@ class FoodChain
     for i in 1..@menagerie.size
       picked_creature = @menagerie[i - 1]
 
-      display_first_line_per_verse( picked_creature)
-      display_second_line_per_verse(picked_creature)    
+      build_first_line_per_verse( picked_creature)
+      build_second_line_per_verse(picked_creature)    
 
       unless picked_creature == "horse"
         
@@ -34,58 +36,76 @@ class FoodChain
         (i - 1).downto(1) do |n|
           currently_swallowed_creature  = @menagerie[n]
           previously_swallowed_creature = @menagerie[n - 1]
-          last_swallowed_creature       = display_who_swallowed_who(currently_swallowed_creature, previously_swallowed_creature)        
+          last_swallowed_creature       = build_who_swallowed_who(currently_swallowed_creature, previously_swallowed_creature)        
         end
 
-        display_last_line_per_verse(last_swallowed_creature)
+        build_last_line_per_verse(last_swallowed_creature)
       end  
     end
+    
+    display_song_lyrics
+    
+    return @song_lyrics
   end  
   
-  def display_first_line_per_verse(picked_creature)
-    puts "\nI know an old lady who swallowed a #{picked_creature}."  
+  def build_first_line_per_verse(picked_creature)
+    line = "I know an old lady who swallowed a #{picked_creature}.\n"  
+    
+    @song_lyrics += line
   end
   
-  def display_second_line_per_verse(picked_creature)
+  def build_second_line_per_verse(picked_creature)
     
-    case picked_creature
+    
+    line = case picked_creature
     when "fly"
-      # Do nothing. This is here to make sure 'fly' is processed and not mistakenly to be "unrecognized"...
+      "" # Do nothing. This is here to make sure 'fly' is processed and not mistakenly to be "unrecognized"...
     when "spider"
-      puts "It wriggled and jiggled and tickled inside her."  
+      "It wriggled and jiggled and tickled inside her.\n"  
     when "bird" 
-      puts "How absurd to swallow a bird!" 
+      "How absurd to swallow a bird!\n" 
     when "cat" 
-      puts "Imagine that, to swallow a cat!"
+      "Imagine that, to swallow a cat!\n"
     when "dog"
-      puts "What a hog, to swallow a dog!"
+      "What a hog, to swallow a dog!\n"
     when  "goat" 
-      puts "Just opened her throat and swallowed a goat!"
+      "Just opened her throat and swallowed a goat!\n"
     when  "cow" 
-      puts "I don't know how she swallowed a cow!"
+      "I don't know how she swallowed a cow!\n"
     when "horse" 
-      puts "She's dead, of course!\n\n"
+      "She's dead, of course!\n\n\n"
     else
       puts "ERROR! Unrecognized submitted creature, #{picked_creature}." 
+      return
     end  
+ 
+    @song_lyrics += line
   end
   
-  def display_last_line_per_verse(last_swallowed_creature)
-    puts "I don't know why she swallowed the #{last_swallowed_creature}. Perhaps she'll die.\n\n"
-  end
-  
-  def display_who_swallowed_who(currently_swallowed_creature, previously_swallowed_creature)
+  def build_last_line_per_verse(last_swallowed_creature)
+    line = "I don't know why she swallowed the #{last_swallowed_creature}. Perhaps she'll die.\n\n"
     
-    case previously_swallowed_creature
+    @song_lyrics = @song_lyrics + line
+  end
+  
+  def build_who_swallowed_who(currently_swallowed_creature, previously_swallowed_creature)
+    
+    line = case previously_swallowed_creature
     when "goat", "dog", "cat", "bird", "fly"
-      puts "She swallowed the #{currently_swallowed_creature} to catch the #{previously_swallowed_creature}."
+      "She swallowed the #{currently_swallowed_creature} to catch the #{previously_swallowed_creature}.\n"
     when "spider"
-      puts "She swallowed the #{currently_swallowed_creature} to catch the #{previously_swallowed_creature} that wriggled and jiggled and tickled inside her."
+      "She swallowed the #{currently_swallowed_creature} to catch the #{previously_swallowed_creature} that wriggled and jiggled and tickled inside her.\n"
     else
-      puts "ERROR! Unrecognized submitted creature, #{previously_swallowed_creature}."    
+      "ERROR! Unrecognized submitted creature, #{previously_swallowed_creature}."    
     end
+    
+    @song_lyrics += line
     
     return previously_swallowed_creature
   end
+  
+  def display_song_lyrics
+    puts "\n\n#{@song_lyrics}"
+  end  
   
 end
